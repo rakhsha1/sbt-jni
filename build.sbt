@@ -4,7 +4,7 @@ val scalaVersions = Seq("2.12.4", "2.11.12", "2.10.6")
 val macrosParadiseVersion = "2.1.0"
 
 // version is derived from latest git tag
-version in ThisBuild := ("git describe --always --dirty=-SNAPSHOT --match v[0-9].*" !!).tail.trim
+version in ThisBuild := "9.0"
 organization in ThisBuild := "ch.jodersky"
 scalacOptions in ThisBuild ++= Seq(
   "-deprecation",
@@ -33,7 +33,8 @@ lazy val macros = (project in file("macros"))
     addCompilerPlugin("org.scalamacros" % "paradise" % macrosParadiseVersion cross CrossVersion.full),
     libraryDependencies += "org.typelevel" %% "macro-compat" % "1.1.1",
     libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value % Provided,
-    libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
+    libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+    libraryDependencies +="com.whitecryption" % "jcp-config" % "1.0"
   )
 
 lazy val plugin = (project in file("plugin"))

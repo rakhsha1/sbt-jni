@@ -87,6 +87,7 @@ class nativeLoaderMacro(val c: Context) {
               case ex: UnsatisfiedLinkError => loadPackaged()
             }
 
+            println("loading native")
             load()
           }
           """
